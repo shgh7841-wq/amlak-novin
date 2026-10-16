@@ -3,921 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b18">
-<title>مشاور املاک نوین | Novin Real Estate</title>
+<title>مشاور املاک نوین</title>
 
 <style>
 :root {
-  --bg: #080b18;
-  --card: #11172a;
-  --text: #f4f7ff;
-  --muted: #aab5cc;
-  --border: rgba(0,245,255,.25);
-  --cyan: #00f5ff;
-  --pink: #ff32c8;
-  --purple: #8b5cf6;
-  --shadow: 0 0 18px rgba(0,245,255,.12);
+  --bg:#07111f;
+  --card:#101e30;
+  --text:#f2f7ff;
+  --muted:#a8bad0;
+  --accent:#00f5d4;
+  --accent2:#9b5cff;
+  --border:#263b54;
 }
-
 body.light {
-  --bg: #f3f7ff;
-  --card: #ffffff;
-  --text: #15213b;
-  --muted: #66738b;
-  --border: rgba(0,150,180,.25);
-  --cyan: #008fa3;
-  --pink: #d62caa;
-  --purple: #6941c6;
-  --shadow: 0 5px 25px rgba(30,60,100,.09);
+  --bg:#f2f7fc;
+  --card:#ffffff;
+  --text:#13243a;
+  --muted:#61738a;
+  --accent:#008f83;
+  --accent2:#7442d9;
+  --border:#d7e2ee;
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* {box-sizing:border-box}
 body {
-  font-family: Tahoma, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.9;
-  transition: background .3s, color .3s;
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
 }
-
-button, input, select, textarea {
-  font: inherit;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-}
-
-.container {
-  width: min(1120px, 92%);
-  margin: auto;
-}
-
 header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(15px);
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  border-bottom:1px solid var(--border);
+  background:var(--card);
 }
-
-.nav {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--cyan);
-  text-shadow: 0 0 14px var(--cyan);
+  font-size:25px;
+  font-weight:bold;
+  color:var(--accent);
+  text-shadow:0 0 14px var(--accent);
 }
-
-.nav-links {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-  font-size: 14px;
+nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
 }
-
-.nav-links a:hover {
-  color: var(--cyan);
+nav a,.btn {
+  color:var(--text);
+  text-decoration:none;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  transition:.25s;
+  display:inline-block;
 }
-
-.controls {
-  display: flex;
-  gap: 8px;
+nav a:hover,.btn:hover {
+  border-color:var(--accent);
+  box-shadow:0 0 15px var(--accent);
+  color:var(--accent);
 }
-
-.control-btn {
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
-  padding: 8px 12px;
-  border-radius: 10px;
+button {
+  cursor:pointer;
+  font-family:inherit;
 }
-
+.theme {
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid var(--accent);
+  background:transparent;
+  color:var(--text);
+}
 .hero {
-  padding: 85px 0 70px;
-  text-align: center;
+  padding:80px 8%;
+  text-align:center;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(0,245,255,.13), transparent 55%),
-    radial-gradient(ellipse at 90% 50%, rgba(255,50,200,.08), transparent 35%);
+    radial-gradient(ellipse at top,rgba(0,245,212,.13),transparent 65%);
 }
-
-.badge {
-  display: inline-block;
-  padding: 5px 16px;
-  border: 1px solid var(--border);
-  border-radius: 30px;
-  color: var(--cyan);
-  margin-bottom: 20px;
-  font-size: 13px;
-}
-
 .hero h1 {
-  font-size: clamp(32px, 6vw, 60px);
-  line-height: 1.5;
-  margin-bottom: 15px;
+  font-size:clamp(30px,5vw,54px);
+  line-height:1.6;
+  margin:0 0 15px;
 }
-
-.neon {
-  color: var(--cyan);
-  text-shadow: 0 0 22px rgba(0,245,255,.5);
-}
-
+.hero h1 span {color:var(--accent)}
 .hero p {
-  color: var(--muted);
-  max-width: 650px;
-  margin: 0 auto 28px;
+  color:var(--muted);
+  line-height:2;
+  max-width:700px;
+  margin:0 auto 28px;
 }
-
-.btn {
-  display: inline-block;
-  border: 1px solid var(--cyan);
-  background: var(--cyan);
-  color: #06111b;
-  padding: 11px 25px;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: .25s;
+.actions {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 22px rgba(0,245,255,.35);
+.primary {
+  background:var(--accent);
+  color:#07111f;
+  border-color:var(--accent);
+  font-weight:bold;
 }
-
-.btn-outline {
-  background: transparent;
-  color: var(--cyan);
-  margin-right: 8px;
+section {padding:35px 7%}
+h2 {text-align:center;margin-bottom:25px}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
 }
-
-.section {
-  padding: 65px 0;
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:25px 20px;
+  text-align:center;
+  transition:.25s;
 }
-
-.section-title {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
+.card:hover {
+  transform:translateY(-5px);
+  border-color:var(--accent);
+  box-shadow:0 0 18px #00f5d422;
 }
-
-.section-subtitle {
-  text-align: center;
-  color: var(--muted);
-  margin-bottom: 32px;
+.icon {font-size:40px}
+.card h3 {margin:14px 0}
+.card p {color:var(--muted);line-height:1.9}
+.card a {
+  color:var(--accent);
+  text-decoration:none;
+  display:inline-block;
+  margin-top:10px;
 }
-
-.search-box {
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 22px;
-  border-radius: 18px;
-  max-width: 950px;
-  margin: 0 auto;
-}
-
-.search-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-input, select, textarea {
-  width: 100%;
-  background: var(--bg);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  padding: 12px;
-  outline: none;
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: var(--cyan);
-  box-shadow: 0 0 10px rgba(0,245,255,.12);
-}
-
-.search-actions {
-  margin-top: 15px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.property-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.property-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 25px 20px;
-  box-shadow: var(--shadow);
-  transition: .3s;
-}
-
-.property-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--cyan);
-}
-
-.property-icon {
-  font-size: 38px;
-  margin-bottom: 10px;
-}
-
-.property-card h3 {
-  font-size: 19px;
-  margin-bottom: 8px;
-}
-
-.property-card p {
-  color: var(--muted);
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.property-card a {
-  color: var(--cyan);
-  font-size: 14px;
-}
-
-.form-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.form-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: var(--shadow);
-}
-
-.form-card h3 {
-  margin-bottom: 18px;
-  font-size: 21px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 13px;
-}
-
-.form-grid .full {
-  grid-column: 1 / -1;
-}
-
-.form-card .btn {
-  margin-top: 16px;
-  width: 100%;
-}
-
-.rating-options {
-  display: flex;
-  gap: 8px;
-  margin: 15px 0;
-  flex-wrap: wrap;
-}
-
-.rating-options label {
-  cursor: pointer;
-}
-
-.rating-options input {
-  display: none;
-}
-
-.rating-options span {
-  display: inline-block;
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-
-.rating-options input:checked + span {
-  color: var(--cyan);
-  border-color: var(--cyan);
-  box-shadow: 0 0 12px rgba(0,245,255,.15);
-}
-
 footer {
-  border-top: 1px solid var(--border);
-  text-align: center;
-  padding: 25px 0;
-  color: var(--muted);
+  text-align:center;
+  padding:25px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  margin-top:30px;
 }
-
-.toast {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  max-width: 420px;
-  margin: auto;
-  padding: 14px;
-  border-radius: 12px;
-  background: var(--card);
-  border: 1px solid var(--cyan);
-  box-shadow: 0 0 20px rgba(0,245,255,.2);
-  display: none;
-  z-index: 200;
-  text-align: center;
-}
-
-.reveal {
-  animation: appear .8s ease both;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 800px) {
-  .nav {
-    flex-wrap: wrap;
-    padding: 12px 0;
-  }
-
-  .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-
-  .property-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .search-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .form-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .property-grid,
-  .search-grid,
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-grid .full {
-    grid-column: auto;
-  }
-
-  .hero {
-    padding: 55px 0;
-  }
-
-  .section {
-    padding: 45px 0;
-  }
-
-  .section-title {
-    font-size: 25px;
-  }
-
-  .btn-outline {
-    margin-right: 0;
-    margin-top: 10px;
-  }
+@media(max-width:600px) {
+  header {justify-content:center}
+  nav {justify-content:center}
+  .hero {padding:55px 6%}
 }
 </style>
 </head>
 
 <body>
-
 <header>
-  <div class="container nav">
-    <a href="#home" class="logo" data-fa="نوین املاک" data-en="NOVIN ESTATE">
-      نوین املاک
-    </a>
+  <div class="logo" data-fa="نوین املاک" data-en="NOVIN REAL ESTATE">نوین املاک</div>
 
-    <nav class="nav-links">
-      <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
-      <a href="#search" data-fa="جستجوی ملک" data-en="Search">جستجوی ملک</a>
-      <a href="#properties" data-fa="نوع ملک" data-en="Properties">نوع ملک</a>
-      <a href="#request" data-fa="ثبت درخواست" data-en="Request">ثبت درخواست</a>
-      <a href="#survey" data-fa="نظرسنجی" data-en="Survey">نظرسنجی</a>
-    </nav>
+  <nav>
+    <a href="index.html" data-fa="صفحه اصلی" data-en="Home">صفحه اصلی</a>
+    <a href="survey.html" data-fa="نظرسنجی" data-en="Survey">نظرسنجی</a>
+    <a href="request.html" data-fa="ثبت درخواست" data-en="Request">ثبت درخواست</a>
+  </nav>
 
-    <div class="controls">
-      <button class="control-btn" id="themeBtn" type="button">☀️</button>
-      <button class="control-btn" id="langBtn" type="button">EN</button>
-    </div>
+  <div>
+    <button class="theme" onclick="toggleTheme()" data-fa="تغییر تم" data-en="Theme">تغییر تم</button>
+    <button class="theme" onclick="toggleLanguage()" id="langBtn">English</button>
   </div>
 </header>
 
 <main>
-
-<section class="hero" id="home">
-  <div class="container reveal">
-    <span class="badge" data-fa="مشاور املاک نوین" data-en="NOVIN REAL ESTATE">
-      مشاور املاک نوین
-    </span>
-
-    <h1>
-      <span data-fa="انتخاب هوشمندانه،" data-en="A Smart Choice,">انتخاب هوشمندانه،</span>
-      <br>
-      <span class="neon" data-fa="معامله مطمئن" data-en="A Confident Deal">معامله مطمئن</span>
+  <div class="hero">
+    <h1 data-fa="انتخابی هوشمندانه برای <span>ملک شما</span>"
+        data-en="A smart choice for <span>your property</span>">
+      انتخابی هوشمندانه برای <span>ملک شما</span>
     </h1>
 
-    <p data-fa="برای خرید، فروش، رهن و اجاره ویلا، باغ، آپارتمان و زمین، ملک موردنظر خود را انتخاب کنید."
-       data-en="Find your ideal villa, garden, apartment or land for buying, selling, renting or mortgage.">
-      برای خرید، فروش، رهن و اجاره ویلا، باغ، آپارتمان و زمین، ملک موردنظر خود را انتخاب کنید.
+    <p data-fa="در مشاور املاک نوین، مسیر خرید، فروش، رهن و اجاره ملک را ساده‌تر دنبال کنید."
+       data-en="At Novin Real Estate, explore buying, selling, mortgage and rental options with ease.">
+      در مشاور املاک نوین، مسیر خرید، فروش، رهن و اجاره ملک را ساده‌تر دنبال کنید.
     </p>
 
-    <a href="#search" class="btn" data-fa="جستجوی ملک" data-en="Search Properties">جستجوی ملک</a>
-    <a href="#request" class="btn btn-outline" data-fa="ثبت درخواست" data-en="Submit Request">ثبت درخواست</a>
-  </div>
-</section>
-
-<section class="section" id="search">
-  <div class="container">
-    <h2 class="section-title" data-fa="جستجوی ملک" data-en="Find a Property">جستجوی ملک</h2>
-    <p class="section-subtitle" data-fa="ملک مناسب خود را پیدا کنید" data-en="Find the right property for you">ملک مناسب خود را پیدا کنید</p>
-
-    <div class="search-box">
-      <form id="searchForm">
-        <div class="search-grid">
-          <select name="transaction" required>
-            <option value="" data-fa="نوع معامله" data-en="Transaction Type">نوع معامله</option>
-            <option value="خرید" data-fa="خرید" data-en="Buy">خرید</option>
-            <option value="فروش" data-fa="فروش" data-en="Sell">فروش</option>
-            <option value="رهن" data-fa="رهن" data-en="Mortgage">رهن</option>
-            <option value="اجاره" data-fa="اجاره" data-en="Rent">اجاره</option>
-          </select>
-
-          <select name="property" required>
-            <option value="" data-fa="نوع ملک" data-en="Property Type">نوع ملک</option>
-            <option value="ویلا" data-fa="ویلا" data-en="Villa">ویلا</option>
-            <option value="باغ" data-fa="باغ" data-en="Garden">باغ</option>
-            <option value="آپارتمان" data-fa="آپارتمان" data-en="Apartment">آپارتمان</option>
-            <option value="زمین" data-fa="زمین" data-en="Land">زمین</option>
-          </select>
-
-          <input name="city" type="text" placeholder="شهر یا منطقه"
-                 data-placeholder-fa="شهر یا منطقه"
-                 data-placeholder-en="City or Area">
-
-          <input name="budget" type="number" min="0" placeholder="حداکثر بودجه"
-                 data-placeholder-fa="حداکثر بودجه"
-                 data-placeholder-en="Maximum Budget">
-        </div>
-
-        <div class="search-actions">
-          <button class="btn" type="submit" data-fa="جستجو" data-en="Search">جستجو</button>
-          <button class="control-btn" type="reset" data-fa="پاک کردن" data-en="Clear">پاک کردن</button>
-        </div>
-      </form>
+    <div class="actions">
+      <a class="btn primary" href="request.html" data-fa="ثبت درخواست ملک" data-en="Submit a Request">ثبت درخواست ملک</a>
+      <a class="btn" href="survey.html" data-fa="شرکت در نظرسنجی" data-en="Take the Survey">شرکت در نظرسنجی</a>
     </div>
   </div>
-</section>
 
-<section class="section" id="properties">
-  <div class="container">
-    <h2 class="section-title" data-fa="انواع ملک" data-en="Property Categories">انواع ملک</h2>
-    <p class="section-subtitle" data-fa="خرید، فروش، رهن و اجاره" data-en="Buy, sell, mortgage and rent">خرید، فروش، رهن و اجاره</p>
+  <section>
+    <h2 data-fa="خدمات املاک" data-en="Real Estate Services">خدمات املاک</h2>
 
-    <div class="property-grid">
-
-      <article class="property-card">
-        <div class="property-icon">🏡</div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🏡</div>
         <h3 data-fa="ویلا" data-en="Villa">ویلا</h3>
-        <p data-fa="جستجو و ثبت درخواست خرید، فروش، رهن یا اجاره ویلا"
-           data-en="Find or request villas for buying, selling or renting.">
-          جستجو و ثبت درخواست خرید، فروش، رهن یا اجاره ویلا
-        </p>
-        <a href="#request" data-fa="ثبت درخواست ←" data-en="Submit Request →">ثبت درخواست ←</a>
-      </article>
+        <p data-fa="مشاهده و ثبت درخواست مربوط به ویلا" data-en="Explore villas and submit a request">مشاهده و ثبت درخواست مربوط به ویلا</p>
+        <a href="request.html?property=villa" data-fa="ثبت درخواست ←" data-en="Submit Request ←">ثبت درخواست ←</a>
+      </div>
 
-      <article class="property-card">
-        <div class="property-icon">🌳</div>
+      <div class="card">
+        <div class="icon">🌳</div>
         <h3 data-fa="باغ" data-en="Garden">باغ</h3>
-        <p data-fa="ثبت درخواست برای باغ و املاک باغی"
-           data-en="Submit a request for gardens and garden properties.">
-          ثبت درخواست برای باغ و املاک باغی
-        </p>
-        <a href="#request" data-fa="ثبت درخواست ←" data-en="Submit Request →">ثبت درخواست ←</a>
-      </article>
+        <p data-fa="ثبت درخواست خرید، فروش یا اجاره باغ" data-en="Requests for garden purchase, sale or rent">ثبت درخواست خرید، فروش یا اجاره باغ</p>
+        <a href="request.html?property=garden" data-fa="ثبت درخواست ←" data-en="Submit Request ←">ثبت درخواست ←</a>
+      </div>
 
-      <article class="property-card">
-        <div class="property-icon">🏢</div>
+      <div class="card">
+        <div class="icon">🏢</div>
         <h3 data-fa="آپارتمان" data-en="Apartment">آپارتمان</h3>
-        <p data-fa="خرید، فروش، رهن و اجاره آپارتمان"
-           data-en="Buy, sell, mortgage or rent an apartment.">
-          خرید، فروش، رهن و اجاره آپارتمان
-        </p>
-        <a href="#request" data-fa="ثبت درخواست ←" data-en="Submit Request →">ثبت درخواست ←</a>
-      </article>
+        <p data-fa="ثبت درخواست برای آپارتمان" data-en="Submit an apartment request">ثبت درخواست برای آپارتمان</p>
+        <a href="request.html?property=apartment" data-fa="ثبت درخواست ←" data-en="Submit Request ←">ثبت درخواست ←</a>
+      </div>
 
-      <article class="property-card">
-        <div class="property-icon">🏞️</div>
+      <div class="card">
+        <div class="icon">🏞️</div>
         <h3 data-fa="زمین" data-en="Land">زمین</h3>
-        <p data-fa="ثبت درخواست خرید یا فروش انواع زمین"
-           data-en="Submit requests to buy or sell land.">
-          ثبت درخواست خرید یا فروش انواع زمین
-        </p>
-        <a href="#request" data-fa="ثبت درخواست ←" data-en="Submit Request →">ثبت درخواست ←</a>
-      </article>
-
-      <article class="property-card">
-        <div class="property-icon">🔑</div>
-        <h3 data-fa="خرید و فروش" data-en="Buying & Selling">خرید و فروش</h3>
-        <p data-fa="ثبت درخواست خرید یا فروش ملک موردنظر"
-           data-en="Submit a property buying or selling request.">
-          ثبت درخواست خرید یا فروش ملک موردنظر
-        </p>
-        <a href="#request" data-fa="ثبت درخواست ←" data-en="Submit Request →">ثبت درخواست ←</a>
-      </article>
-
-      <article class="property-card">
-        <div class="property-icon">🏠</div>
-        <h3 data-fa="رهن و اجاره" data-en="Mortgage & Rent">رهن و اجاره</h3>
-        <p data-fa="ثبت درخواست رهن یا اجاره ملک"
-           data-en="Submit a mortgage or rental request.">
-          ثبت درخواست رهن یا اجاره ملک
-        </p>
-        <a href="#request" data-fa="ثبت درخواست ←" data-en="Submit Request →">ثبت درخواست ←</a>
-      </article>
-
+        <p data-fa="ثبت درخواست خرید یا فروش زمین" data-en="Requests for land purchase or sale">ثبت درخواست خرید یا فروش زمین</p>
+        <a href="request.html?property=land" data-fa="ثبت درخواست ←" data-en="Submit Request ←">ثبت درخواست ←</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="request">
-  <div class="container">
-    <h2 class="section-title" data-fa="ثبت درخواست" data-en="Submit a Request">ثبت درخواست</h2>
-    <p class="section-subtitle" data-fa="درخواست خرید یا فروش ملک خود را ثبت کنید"
-       data-en="Submit your property buying or selling request">
-      درخواست خرید یا فروش ملک خود را ثبت کنید
-    </p>
+  <section>
+    <h2 data-fa="نوع معامله" data-en="Transaction Type">نوع معامله</h2>
 
-    <div class="form-layout">
-
-      <div class="form-card">
-        <h3 data-fa="درخواست خرید ملک" data-en="Property Purchase Request">درخواست خرید ملک</h3>
-
-        <form class="requestForm" data-kind="buy">
-          <div class="form-grid">
-            <input name="name" required placeholder="نام و نام خانوادگی"
-                   data-placeholder-fa="نام و نام خانوادگی"
-                   data-placeholder-en="Full Name">
-
-            <input name="phone" required type="tel" placeholder="شماره تماس"
-                   data-placeholder-fa="شماره تماس"
-                   data-placeholder-en="Phone Number">
-
-            <select name="property" required>
-              <option value="" data-fa="نوع ملک" data-en="Property Type">نوع ملک</option>
-              <option value="ویلا" data-fa="ویلا" data-en="Villa">ویلا</option>
-              <option value="باغ" data-fa="باغ" data-en="Garden">باغ</option>
-              <option value="آپارتمان" data-fa="آپارتمان" data-en="Apartment">آپارتمان</option>
-              <option value="زمین" data-fa="زمین" data-en="Land">زمین</option>
-            </select>
-
-            <input name="city" required placeholder="شهر یا منطقه"
-                   data-placeholder-fa="شهر یا منطقه"
-                   data-placeholder-en="City or Area">
-
-            <input name="budget" type="number" min="0" placeholder="بودجه موردنظر"
-                   data-placeholder-fa="بودجه موردنظر"
-                   data-placeholder-en="Your Budget">
-
-            <select name="transaction" required>
-              <option value="" data-fa="نوع معامله" data-en="Transaction Type">نوع معامله</option>
-              <option value="خرید" data-fa="خرید" data-en="Buy">خرید</option>
-              <option value="رهن" data-fa="رهن" data-en="Mortgage">رهن</option>
-              <option value="اجاره" data-fa="اجاره" data-en="Rent">اجاره</option>
-            </select>
-
-            <textarea class="full" name="details" rows="3"
-              placeholder="توضیحات بیشتر"
-              data-placeholder-fa="توضیحات بیشتر"
-              data-placeholder-en="Additional Details"></textarea>
-          </div>
-
-          <button class="btn" type="submit" data-fa="ثبت درخواست خرید" data-en="Submit Purchase Request">ثبت درخواست خرید</button>
-        </form>
+    <div class="grid">
+      <div class="card">
+        <h3 data-fa="خرید ملک" data-en="Buy Property">خرید ملک</h3>
+        <a href="request.html?transaction=buy" data-fa="ثبت درخواست خرید ←" data-en="Request to Buy ←">ثبت درخواست خرید ←</a>
       </div>
 
-      <div class="form-card">
-        <h3 data-fa="درخواست فروش ملک" data-en="Property Selling Request">درخواست فروش ملک</h3>
-
-        <form class="requestForm" data-kind="sell">
-          <div class="form-grid">
-            <input name="name" required placeholder="نام و نام خانوادگی"
-                   data-placeholder-fa="نام و نام خانوادگی"
-                   data-placeholder-en="Full Name">
-
-            <input name="phone" required type="tel" placeholder="شماره تماس"
-                   data-placeholder-fa="شماره تماس"
-                   data-placeholder-en="Phone Number">
-
-            <select name="property" required>
-              <option value="" data-fa="نوع ملک" data-en="Property Type">نوع ملک</option>
-              <option value="ویلا" data-fa="ویلا" data-en="Villa">ویلا</option>
-              <option value="باغ" data-fa="باغ" data-en="Garden">باغ</option>
-              <option value="آپارتمان" data-fa="آپارتمان" data-en="Apartment">آپارتمان</option>
-              <option value="زمین" data-fa="زمین" data-en="Land">زمین</option>
-            </select>
-
-            <input name="city" required placeholder="شهر یا منطقه"
-                   data-placeholder-fa="شهر یا منطقه"
-                   data-placeholder-en="City or Area">
-
-            <input name="price" type="number" min="0" placeholder="قیمت پیشنهادی"
-                   data-placeholder-fa="قیمت پیشنهادی"
-                   data-placeholder-en="Asking Price">
-
-            <select name="transaction" required>
-              <option value="" data-fa="نوع معامله" data-en="Transaction Type">نوع معامله</option>
-              <option value="فروش" data-fa="فروش" data-en="Sell">فروش</option>
-              <option value="رهن" data-fa="رهن" data-en="Mortgage">رهن</option>
-              <option value="اجاره" data-fa="اجاره" data-en="Rent">اجاره</option>
-            </select>
-
-            <textarea class="full" name="details" rows="3"
-              placeholder="توضیحات ملک"
-              data-placeholder-fa="توضیحات ملک"
-              data-placeholder-en="Property Details"></textarea>
-          </div>
-
-          <button class="btn" type="submit" data-fa="ثبت درخواست فروش" data-en="Submit Selling Request">ثبت درخواست فروش</button>
-        </form>
+      <div class="card">
+        <h3 data-fa="فروش ملک" data-en="Sell Property">فروش ملک</h3>
+        <a href="request.html?transaction=sell" data-fa="ثبت درخواست فروش ←" data-en="Request to Sell ←">ثبت درخواست فروش ←</a>
       </div>
 
+      <div class="card">
+        <h3 data-fa="رهن ملک" data-en="Mortgage">رهن ملک</h3>
+        <a href="request.html?transaction=mortgage" data-fa="ثبت درخواست رهن ←" data-en="Request Mortgage ←">ثبت درخواست رهن ←</a>
+      </div>
+
+      <div class="card">
+        <h3 data-fa="اجاره ملک" data-en="Rent Property">اجاره ملک</h3>
+        <a href="request.html?transaction=rent" data-fa="ثبت درخواست اجاره ←" data-en="Request to Rent ←">ثبت درخواست اجاره ←</a>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="section" id="survey">
-  <div class="container">
-    <h2 class="section-title" data-fa="نظرسنجی مشتریان" data-en="Customer Survey">نظرسنجی مشتریان</h2>
-    <p class="section-subtitle" data-fa="نظر شما برای ما ارزشمند است"
-       data-en="Your feedback matters to us">نظر شما برای ما ارزشمند است</p>
-
-    <div class="form-card" style="max-width:650px;margin:auto">
-      <form id="surveyForm">
-        <label data-fa="میزان رضایت شما از خدمات مشاور املاک نوین؟"
-               data-en="How satisfied are you with Novin Real Estate?">
-          میزان رضایت شما از خدمات مشاور املاک نوین؟
-        </label>
-
-        <div class="rating-options">
-          <label>
-            <input type="radio" name="rating" value="1" required>
-            <span data-fa="⭐ ضعیف" data-en="⭐ Poor">⭐ ضعیف</span>
-          </label>
-          <label>
-            <input type="radio" name="rating" value="2">
-            <span data-fa="⭐⭐ متوسط" data-en="⭐⭐ Fair">⭐⭐ متوسط</span>
-          </label>
-          <label>
-            <input type="radio" name="rating" value="3">
-            <span data-fa="⭐⭐⭐ خوب" data-en="⭐⭐⭐ Good">⭐⭐⭐ خوب</span>
-          </label>
-          <label>
-            <input type="radio" name="rating" value="4">
-            <span data-fa="⭐⭐⭐⭐ عالی" data-en="⭐⭐⭐⭐ Great">⭐⭐⭐⭐ عالی</span>
-          </label>
-        </div>
-
-        <textarea name="feedback" rows="4"
-          placeholder="نظر یا پیشنهاد شما (اختیاری)"
-          data-placeholder-fa="نظر یا پیشنهاد شما (اختیاری)"
-          data-placeholder-en="Your feedback or suggestion (optional)"></textarea>
-
-        <button class="btn" type="submit" data-fa="ثبت نظر" data-en="Submit Feedback">ثبت نظر</button>
-      </form>
-    </div>
-  </div>
-</section>
-
+  </section>
 </main>
 
-<footer>
-  <div class="container">
-    <span data-fa="مشاور املاک نوین" data-en="Novin Real Estate">مشاور املاک نوین</span>
-  </div>
+<footer data-fa="مشاور املاک نوین" data-en="Novin Real Estate">
+  مشاور املاک نوین
 </footer>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <script>
-const body = document.body;
-const themeBtn = document.getElementById("themeBtn");
-const langBtn = document.getElementById("langBtn");
-const toast = document.getElementById("toast");
-
-let language = "fa";
-let toastTimer;
-
-function showToast(fa, en) {
-  toast.textContent = language === "fa" ? fa : en;
-  toast.style.display = "block";
-
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    toast.style.display = "none";
-  }, 3500);
-}
-
-// Dark / Light theme
-themeBtn.addEventListener("click", () => {
-  body.classList.toggle("light");
-
-  const isLight = body.classList.contains("light");
-  themeBtn.textContent = isLight ? "🌙" : "☀️";
-
-  try {
-    localStorage.setItem("novin-theme", isLight ? "light" : "dark");
-  } catch (e) {}
-});
-
-try {
-  if (localStorage.getItem("novin-theme") === "light") {
-    body.classList.add("light");
-    themeBtn.textContent = "🌙";
-  }
-} catch (e) {}
-
-// Persian / English
-function setLanguage(lang) {
-  language = lang;
-
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
-  langBtn.textContent = lang === "fa" ? "EN" : "فا";
-
-  document.querySelectorAll("[data-fa][data-en]").forEach(el => {
-    el.textContent = el.dataset[lang];
-  });
-
-  document.querySelectorAll("[data-placeholder-fa][data-placeholder-en]").forEach(el => {
-    el.placeholder = el.dataset[
-      lang === "fa" ? "placeholderFa" : "placeholderEn"
-    ];
-  });
-
-  document.title = lang === "fa"
-    ? "مشاور املاک نوین | Novin Real Estate"
-    : "Novin Real Estate";
-
-  try {
-    localStorage.setItem("novin-language", lang);
-  } catch (e) {}
-}
-
-langBtn.addEventListener("click", () => {
-  setLanguage(language === "fa" ? "en" : "fa");
-});
-
-try {
-  setLanguage(localStorage.getItem("novin-language") || "fa");
-} catch (e) {
-  setLanguage("fa");
-}
-
-// Search form
-document.getElementById("searchForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  const data = new FormData(event.currentTarget);
-  const params = new URLSearchParams();
-
-  for (const [key, value] of data.entries()) {
-    if (value) params.set(key, value);
-  }
-
-  const target = document.getElementById("request");
-  target.scrollIntoView({ behavior: "smooth" });
-
-  showToast(
-    "جستجو آماده است؛ برای پیگیری، درخواست خود را در فرم زیر ثبت کنید.",
-    "Search criteria are ready. Submit your request in the form below."
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  localStorage.setItem(
+    'novin-theme',
+    document.body.classList.contains('light') ? 'light' : 'dark'
   );
+}
+if (localStorage.getItem('novin-theme') === 'light') {
+  document.body.classList.add('light');
+}
 
-  // This static site does not have a property database.
-});
+function toggleLanguage() {
+  const isEnglish = document.documentElement.lang === 'fa';
+  document.documentElement.lang = isEnglish ? 'en' : 'fa';
+  document.documentElement.dir = isEnglish ? 'ltr' : 'rtl';
 
-// Purchase / selling request forms
-document.querySelectorAll(".requestForm").forEach(form => {
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-
-    const data = new FormData(form);
-    const request = Object.fromEntries(data.entries());
-
-    // Save locally on this device only.
-    try {
-      const saved = JSON.parse(
-        localStorage.getItem("novin-requests") || "[]"
-      );
-
-      saved.push({
-        ...request,
-        kind: form.dataset.kind,
-        createdAt: new Date().toISOString()
-      });
-
-      localStorage.setItem("novin-requests", JSON.stringify(saved));
-
-      showToast(
-        "اطلاعات درخواست در همین مرورگر ذخیره شد؛ هنوز برای مشاور ارسال نشده است.",
-        "Your request was saved in this browser only. It has not been sent to the agent."
-      );
-
-      form.reset();
-    } catch (error) {
-      showToast(
-        "ذخیره اطلاعات انجام نشد. دوباره تلاش کنید.",
-        "Could not save the request. Please try again."
-      );
-    }
+  document.querySelectorAll('[data-fa]').forEach(el => {
+    el.innerHTML = isEnglish ? el.dataset.en : el.dataset.fa;
   });
-});
 
-// Customer survey
-document.getElementById("surveyForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  const data = new FormData(event.currentTarget);
-
-  const feedback = {
-    rating: data.get("rating"),
-    comment: data.get("feedback"),
-    createdAt: new Date().toISOString()
-  };
-
-  try {
-    const saved = JSON.parse(
-      localStorage.getItem("novin-surveys") || "[]"
-    );
-
-    saved.push(feedback);
-
-    localStorage.setItem("novin-surveys", JSON.stringify(saved));
-
-    showToast(
-      "نظر شما در همین مرورگر ذخیره شد؛ ممنون از مشارکت شما.",
-      "Your feedback was saved in this browser. Thank you!"
-    );
-
-    event.currentTarget.reset();
-  } catch (error) {
-    showToast(
-      "ذخیره نظر انجام نشد. دوباره تلاش کنید.",
-      "Could not save your feedback. Please try again."
-    );
-  }
-});
+  document.getElementById('langBtn').textContent =
+    isEnglish ? 'فارسی' : 'English';
+}
 </script>
-
 </body>
 </html>
