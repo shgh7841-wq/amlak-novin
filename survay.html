@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظرسنجی | مشاور املاک نوین</title>
+
+<style>
+:root{
+--bg:#080b18;--card:#11172a;--text:#f4f7ff;--muted:#aab5cc;
+--border:rgba(0,245,255,.25);--cyan:#00f5ff;--shadow:0 0 18px rgba(0,245,255,.12)
+}
+body.light{
+--bg:#f3f7ff;--card:#fff;--text:#15213b;--muted:#66738b;
+--border:rgba(0,150,180,.25);--cyan:#008fa3;--shadow:0 5px 25px rgba(30,60,100,.09)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.9;transition:.3s}
+button,input,textarea{font:inherit}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--bg);border-bottom:1px solid var(--border)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:24px;font-weight:bold;color:var(--cyan);text-shadow:0 0 14px var(--cyan)}
+.nav-links{display:flex;gap:18px;font-size:14px}
+.nav-links a:hover{color:var(--cyan)}
+.controls{display:flex;gap:8px}
+.control-btn{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer}
+.hero{padding:55px 0 35px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(0,245,255,.13),transparent 55%)}
+.hero h1{font-size:clamp(30px,5vw,46px);margin-bottom:10px}
+.neon{color:var(--cyan);text-shadow:0 0 22px rgba(0,245,255,.5)}
+.hero p{color:var(--muted)}
+.section{padding:30px 0 70px}
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:var(--shadow);max-width:650px;margin:auto}
+.form-card h2{font-size:22px;margin-bottom:15px}
+label{display:block;margin-bottom:8px}
+input,textarea{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:9px;padding:12px;outline:none;margin-bottom:15px}
+input:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 10px rgba(0,245,255,.12)}
+.rating-options{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 22px}
+.rating-options label{cursor:pointer;margin:0}
+.rating-options input{display:none}
+.rating-options span{display:block;padding:8px 12px;border:1px solid var(--border);border-radius:8px}
+.rating-options input:checked+span{color:var(--cyan);border-color:var(--cyan);box-shadow:0 0 12px rgba(0,245,255,.15)}
+.btn{display:inline-block;border:1px solid var(--cyan);background:var(--cyan);color:#06111b;padding:11px 25px;border-radius:10px;font-weight:bold;cursor:pointer}
+.form-card .btn{width:100%}
+.back{display:inline-block;margin-top:20px;color:var(--cyan)}
+footer{border-top:1px solid var(--border);text-align:center;padding:25px 0;color:var(--muted)}
+.toast{position:fixed;bottom:20px;left:20px;right:20px;max-width:420px;margin:auto;padding:14px;border-radius:12px;background:var(--card);border:1px solid var(--cyan);display:none;text-align:center}
+@media(max-width:700px){
+.nav{flex-wrap:wrap;padding:12px 0}.nav-links{order:3;width:100%;justify-content:center;flex-wrap:wrap}
+.form-card{padding:20px}
+}
+</style>
+</head>
+
+<body>
+<header>
+<div class="container nav">
+<a href="index.html" class="logo" data-fa="نوین املاک" data-en="NOVIN ESTATE">نوین املاک</a>
+<nav class="nav-links">
+<a href="index.html" data-fa="صفحه اصلی" data-en="Home">صفحه اصلی</a>
+<a href="request.html" data-fa="ثبت درخواست" data-en="Request">ثبت درخواست</a>
+<a href="survey.html" data-fa="نظرسنجی" data-en="Survey">نظرسنجی</a>
+</nav>
+<div class="controls">
+<button class="control-btn" id="themeBtn" type="button">☀️</button>
+<button class="control-btn" id="langBtn" type="button">EN</button>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<h1><span class="neon" data-fa="نظرسنجی مشتریان" data-en="Customer Survey">نظرسنجی مشتریان</span></h1>
+<p data-fa="نظر شما برای بهبود خدمات مشاور املاک نوین ارزشمند است."
+data-en="Your feedback helps us improve Novin Real Estate services.">
+نظر شما برای بهبود خدمات مشاور املاک نوین ارزشمند است.
+</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="form-card">
+<h2 data-fa="ثبت نظر و میزان رضایت" data-en="Share Your Feedback">ثبت نظر و میزان رضایت</h2>
+
+<form id="surveyForm">
+<label for="name" data-fa="نام (اختیاری)" data-en="Name (optional)">نام (اختیاری)</label>
+<input id="name" name="name" data-placeholder-fa="نام شما" data-placeholder-en="Your name" placeholder="نام شما">
+
+<label data-fa="میزان رضایت شما از خدمات ما چقدر است؟" data-en="How satisfied are you with our service?">
+میزان رضایت شما از خدمات ما چقدر است؟
+</label>
+
+<div class="rating-options">
+<label><input type="radio" name="rating" value="1" required><span data-fa="⭐ ضعیف" data-en="⭐ Poor">⭐ ضعیف</span></label>
+<label><input type="radio" name="rating" value="2"><span data-fa="⭐⭐ متوسط" data-en="⭐⭐ Fair">⭐⭐ متوسط</span></label>
+<label><input type="radio" name="rating" value="3"><span data-fa="⭐⭐⭐ خوب" data-en="⭐⭐⭐ Good">⭐⭐⭐ خوب</span></label>
+<label><input type="radio" name="rating" value="4"><span data-fa="⭐⭐⭐⭐ عالی" data-en="⭐⭐⭐⭐ Excellent">⭐⭐⭐⭐ عالی</span></label>
+</div>
+
+<label for="feedback" data-fa="نظر و پیشنهاد شما" data-en="Your comments and suggestions">نظر و پیشنهاد شما</label>
+<textarea id="feedback" name="feedback" rows="5" data-placeholder-fa="نظر خود را بنویسید..." data-placeholder-en="Write your feedback..." placeholder="نظر خود را بنویسید..."></textarea>
+
+<button class="btn" type="submit" data-fa="ثبت نظرسنجی" data-en="Submit Survey">ثبت نظرسنجی</button>
+</form>
+
+<a href="index.html" class="back" data-fa="← بازگشت به صفحه اصلی" data-en="← Back to Home">← بازگشت به صفحه اصلی</a>
+</div>
+</div>
+</section>
+
+<footer>
+<span data-fa="مشاور املاک نوین" data-en="Novin Real Estate">مشاور املاک نوین</span>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const body=document.body;
+const themeBtn=document.getElementById("themeBtn");
+const langBtn=document.getElementById("langBtn");
+const toast=document.getElementById("toast");
+let language="fa";
+let toastTimer;
+
+function setLanguage(lang){
+language=lang;
+document.documentElement.lang=lang;
+document.documentElement.dir=lang==="fa"?"rtl":"ltr";
+langBtn.textContent=lang==="fa"?"EN":"فا";
+
+document.querySelectorAll("[data-fa][data-en]").forEach(el=>{
+el.textContent=el.dataset[lang];
+});
+
+document.querySelectorAll("[data-placeholder-fa][data-placeholder-en]").forEach(el=>{
+el.placeholder=lang==="fa"?el.dataset.placeholderFa:el.dataset.placeholderEn;
+});
+
+document.title=lang==="fa"?"نظرسنجی | مشاور املاک نوین":"Customer Survey | Novin Real Estate";
+try{localStorage.setItem("novin-language",lang)}catch(e){}
+}
+
+function showToast(fa,en){
+toast.textContent=language==="fa"?fa:en;
+toast.style.display="block";
+clearTimeout(toastTimer);
+toastTimer=setTimeout(()=>toast.style.display="none",4000);
+}
+
+langBtn.addEventListener("click",()=>{
+setLanguage(language==="fa"?"en":"fa");
+});
+
+themeBtn.addEventListener("click",()=>{
+body.classList.toggle("light");
+const light=body.classList.contains("light");
+themeBtn.textContent=light?"🌙":"☀️";
+try{localStorage.setItem("novin-theme",light?"light":"dark")}catch(e){}
+});
+
+try{
+if(localStorage.getItem("novin-theme")==="light"){
+body.classList.add("light");
+themeBtn.textContent="🌙";
+}
+setLanguage(localStorage.getItem("novin-language")||"fa");
+}catch(e){setLanguage("fa")}
+
+document.getElementById("surveyForm").addEventListener("submit",e=>{
+e.preventDefault();
+const data=new FormData(e.currentTarget);
+
+const response={
+name:data.get("name"),
+rating:data.get("rating"),
+feedback:data.get("feedback"),
+createdAt:new Date().toISOString()
+};
+
+try{
+const responses=JSON.parse(localStorage.getItem("novin-surveys")||"[]");
+responses.push(response);
+localStorage.setItem("novin-surveys",JSON.stringify(responses));
+
+showToast(
+"نظر شما در همین مرورگر ذخیره شد؛ هنوز به مشاور ارسال نشده است.",
+"Your feedback was saved in this browser only. It has not been sent to the agent."
+);
+e.currentTarget.reset();
+}catch(error){
+showToast("ذخیره نظر انجام نشد. دوباره تلاش کنید.","Could not save your feedback. Please try again.");
+}
+});
+</script>
+</body>
+</html>
